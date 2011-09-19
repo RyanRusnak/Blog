@@ -1,0 +1,51 @@
+
+
+<style>
+
+</style>
+
+<script>
+
+
+</script>
+
+<!--	<input type="range" min="12" max="22" value="12" step="2" id="slider" /><br />
+	Value: <input type="text" id="value_display" value="12" />-->
+
+<body>
+<div class ="main">
+<h1> </h1>
+<table class= "post">
+
+<% @posts.each do |post| %>
+
+    <tr><td><h1><b><%= post.title %></b></h1></td></tr>
+    <tr><td><h3>Posted: <%= post.timePosted_formatted %></h3></td></tr>
+    <tr><td><%= image_tag post.photo.url(:small) %></td></tr>
+    <tr><td><%= post.body %></td></tr>
+    <tr><td><%= link_to 'Show', post %>
+    <%= link_to 'Edit', edit_post_path(post) %>
+    <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete%></tr>
+<% end %>
+</table>
+
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>
+
+
+
+<div id="sideMenu">
+<ul>
+	<li><a href="<?php echo get_settings('home'); ?>">HOME</a></li>
+	<li><a href="wordpress/recipes/">RECIPES</a></li>
+	<li><a href="wordpress/travel/">TRAVEL</a></li>
+	<li><a href="http://www.wordpress.org">WORDPRESS</a></li>
+</ul>
+</div>
+
+
+</div>
+</body>
+<%= render 'layouts/footer' %>
